@@ -1,37 +1,27 @@
-#ifndef PAGAMENTO_H
-#define PAGAMENTO_H
+#include "Pagamento.h"
 #include <string>
 #include<iostream>
-#include "Pagamento.h"
 
-using namespace std;
+Pagamento::Pagamento(){
+ valorPagamento = 0;
+}
+Pagamento::Pagamento(std::string nomeFunc, double valorPagamento){
 
-class Pagamento{ //CRIA CLASSE PAGAMENTO
+    this->nomeFunc = nomeFunc;
+    this->valorPagamento = valorPagamento;
+}
 
-public:
-    std::string nomeFunc; //NOME DO FUNCIONARIO
-    double valorPagamento;
+void Pagamento::setValor(double valorPagamento){
+    this->valorPagamento = valorPagamento;
+}
+void Pagamento::setNome(std::string nomeFunc){
+    this->nomeFunc = nomeFunc;
+}
+double Pagamento::getValor(){
+    return valorPagamento;
+}
+std::string Pagamento::getNome(){
+    return nomeFunc;
+}
+//INICIO METODOS CONTROLE DE PAGAMENTOS
 
-
-    Pagamento(std::string nomeFunc, double valorPagamento);
-
-    void setValor(double valorPagamento);
-    void setNome(std::string nomeFunc);
-
-    double getValor();
-    std::string getNome();
-};
-        //FIM DE CLASSE PAGAMENTO
-
-class ControleDePagamentos{ //CRIA CONTROLE DE PAGAMENTOS
-
-public:
-    Pagamento pagamento; //CRIA ATRIBUTO DO TIPO DA CLASSE PAGAMENTO DE NOME PAGAMENTO
-
-    ControleDePagamentos(Pagamento pagamento);
-    void setPagamento(Pagamento pagamento); //SETA PAGAMENTO
-    double CalculaTotalPagamento();
-    bool ExistePagamentoParaFunc(std::string nomeFunc); //METODO PARA CVERIFICAR SE HA O MESMO TIPO DE NOME
-};
-
-#endif // PAGAMENTO_H
