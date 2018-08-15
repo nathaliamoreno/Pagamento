@@ -2,47 +2,26 @@
 #include <string>
 #include<iostream>
 
+Pagamento::Pagamento(){
+ valorPagamento = 0;
+}
 Pagamento::Pagamento(std::string nomeFunc, double valorPagamento){
 
     this->nomeFunc = nomeFunc;
     this->valorPagamento = valorPagamento;
 }
 
-void setValor(double valorPagamento){
+void Pagamento::setValor(double valorPagamento){
     this->valorPagamento = valorPagamento;
 }
-void setNome(std::string nomeFunc){
+void Pagamento::setNome(std::string nomeFunc){
     this->nomeFunc = nomeFunc;
 }
-double getValor(){
+double Pagamento::getValor(){
     return valorPagamento;
 }
-std::string getNome(){
+std::string Pagamento::getNome(){
     return nomeFunc;
 }
 //INICIO METODOS CONTROLE DE PAGAMENTOS
 
-ControleDePagamentos::ControleDePagamentos (Pagamento pagamento){
-    this->pagamento = pagamento;
-
-}
-
-void ControleDePagamentos::setPagamento(Pagamento pagamento){
-    this->pagamento = pagamento;
-}
-
-double ControleDePagamentos::CalculaTotalPagamento(){
-
-    double total=0;
-
-        total+= pagamento.getValor(); //SOMANDO VALOR NO TOTAL
-return total;
-}
-bool ControleDePagamentos::ExistePagamentoParaFunc(string nomeFunc){
-
-    if(nomeFunc == pagamento.getNome()){ //COMPARARANDO STRINGS
-        return true;
-    }else{
-        return false;
-    }
-}

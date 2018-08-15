@@ -1,27 +1,24 @@
-#include "Pagamento.h"
+#ifndef PAGAMENTO_H_INCLUDED
+#define PAGAMENTO_H_INCLUDED
 #include <string>
 #include<iostream>
 
-Pagamento::Pagamento(){
- valorPagamento = 0;
-}
-Pagamento::Pagamento(std::string nomeFunc, double valorPagamento){
+using namespace std;
 
-    this->nomeFunc = nomeFunc;
-    this->valorPagamento = valorPagamento;
-}
+class Pagamento{ //CRIA CLASSE PAGAMENTO
 
-void Pagamento::setValor(double valorPagamento){
-    this->valorPagamento = valorPagamento;
-}
-void Pagamento::setNome(std::string nomeFunc){
-    this->nomeFunc = nomeFunc;
-}
-double Pagamento::getValor(){
-    return valorPagamento;
-}
-std::string Pagamento::getNome(){
-    return nomeFunc;
-}
-//INICIO METODOS CONTROLE DE PAGAMENTOS
+public:
+    std::string nomeFunc; //NOME DO FUNCIONARIO
+    double valorPagamento;
 
+    Pagamento();
+    Pagamento(std::string nomeFunc, double valorPagamento);
+
+    void setValor(double valorPagamento);
+    void setNome(std::string nomeFunc);
+
+    double getValor();
+    std::string getNome();
+};
+        //FIM DE CLASSE PAGAMENTO
+#endif
